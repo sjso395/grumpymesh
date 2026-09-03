@@ -27,38 +27,45 @@ body{
     top:0;
     z-index:1000;
     display:flex;
-    justify-content:space-between;
+    justify-content:center;
     align-items:center;
-    padding:18px 40px;
-    background:rgba(13,13,13,0.85);
+    flex-wrap:wrap;
+    width:100%;
+    padding:12px 20px;
+    background:rgba(13,13,13,0.97);
     backdrop-filter:blur(12px);
-    border-bottom:1px solid rgba(255,255,255,0.06);
+    border-bottom:2px solid rgba(255,122,0,0.25);
 }
 
 .top-nav .brand{
-    font-size:20px;
-    font-weight:800;
-    color:#ff7a00;
-    letter-spacing:1px;
-    text-decoration:none;
+    display:none;
 }
 
 .top-nav .nav-links{
     display:flex;
-    gap:30px;
+    gap:6px;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+    width:100%;
 }
 
 .top-nav .nav-links a{
-    color:#999;
+    color:#fff;
     text-decoration:none;
-    font-size:14px;
-    font-weight:500;
-    transition:color .2s;
+    font-size:17px;
+    font-weight:800;
+    padding:11px 15px;
+    border-radius:8px;
+    transition:all .2s;
+    white-space:nowrap;
 }
 
 .top-nav .nav-links a:hover,
 .top-nav .nav-links a.active{
     color:#ff7a00;
+    background:rgba(255,122,0,.12);
+    box-shadow:0 0 12px rgba(255,122,0,.10);
 }
 
 @media(max-width:768px){
@@ -383,7 +390,9 @@ img, video, iframe {
         <a href="index.html">Home</a>
         <a href="board.html">Board</a>
         <a href="grumpy-peater.html">Grumpy Peater</a>
+        <a href="grumpy-lite-repeater.html">Grumpy Lite</a>
         <a href="avery-natal.html">Avery Repeater</a>
+        <a href="accessories.html">Accessories</a>
         <a href="flasher.html">Flash Firmware</a>
         <a href="how-we-got-here.html" class="active">How We Got Here</a>
     </div>
