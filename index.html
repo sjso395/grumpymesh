@@ -213,67 +213,94 @@ body:before{
     font-size:20px;
     line-height:1.7;
 }
+
 .top-nav{
     position:sticky;
     top:0;
     z-index:1000;
     display:flex;
-    justify-content:space-between;
+    justify-content:center;
     align-items:center;
-    padding:18px 40px;
-    background:rgba(10,10,10,0.85);
+    width:100%;
+    padding:12px 20px;
+    background:rgba(10,10,10,0.97);
     backdrop-filter:blur(12px);
-    border-bottom:1px solid rgba(255,255,255,0.06);
+    border-bottom:2px solid rgba(255,122,0,0.25);
 }
 
 .top-nav .brand{
-    font-size:20px;
-    font-weight:800;
-    color:#ff7a00;
-    letter-spacing:1px;
-    text-decoration:none;
+    display:none;
 }
 
 .top-nav .nav-links{
     display:flex;
-    gap:24px;
+    gap:6px;
     flex-wrap:wrap;
-    justify-content:flex-end;
+    justify-content:center;
+    align-items:center;
+    width:100%;
 }
 
 .top-nav .nav-links a{
-    color:#999;
+    color:#ffffff;
     text-decoration:none;
-    font-size:14px;
-    font-weight:500;
-    transition:color .2s;
+    font-size:17px;
+    font-weight:800;
+    padding:11px 15px;
+    border-radius:8px;
+    transition:all .2s;
+    white-space:nowrap;
 }
 
 .top-nav .nav-links a:hover,
 .top-nav .nav-links a.active{
     color:#ff7a00;
+    background:rgba(255,122,0,.12);
+    box-shadow:0 0 12px rgba(255,122,0,.10);
 }
 
+/* GrumpyMesh mobile navigation/content fixes */
+* { box-sizing: border-box; }
+html, body { width:100%; max-width:100%; overflow-x:hidden; }
+img, video, iframe { max-width:100%; height:auto; }
 
-@media(max-width:768px){
-.top-nav{
-    padding:14px 20px;
-}
-.top-nav .nav-links{
-    gap:15px;
-}
-.logo{
-    font-size:48px;
+@media (max-width:768px){
+    body{width:100%;overflow-x:hidden;}
+    .top-nav{
+        padding:10px 10px !important;
+        display:flex !important;
+        justify-content:center !important;
+        align-items:center !important;
+    }
+    .top-nav .nav-links{
+        width:100% !important;
+        display:flex !important;
+        justify-content:center !important;
+        align-items:center !important;
+        gap:5px !important;
+        overflow-x:auto !important;
+        overflow-y:hidden !important;
+        white-space:nowrap !important;
+        padding:2px 0 5px !important;
+        scrollbar-width:none;
+        -webkit-overflow-scrolling:touch;
+    }
+    .top-nav .nav-links::-webkit-scrollbar{display:none;}
+    .top-nav .nav-links a{
+        flex:0 0 auto !important;
+        font-size:14px !important;
+        padding:9px 10px !important;
+        white-space:nowrap !important;
+    }
 }
 
-.headline{
-    font-size:30px;
-}
-
-.description{
-    font-size:18px;
-}
-
+@media (max-width:430px){
+    .top-nav{padding:8px 6px !important;}
+    .top-nav .nav-links{gap:3px !important;}
+    .top-nav .nav-links a{
+        font-size:13px !important;
+        padding:8px 8px !important;
+    }
 }
 
 </style>
