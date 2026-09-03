@@ -48,40 +48,47 @@ body{
 nav{
     position:sticky;
     top:0;
-    z-index:100;
+    z-index:1000;
     display:flex;
-    justify-content:space-between;
+    justify-content:center;
     align-items:center;
-    padding:18px 40px;
-    background:rgba(10,10,10,0.85);
+    flex-wrap:wrap;
+    width:100%;
+    padding:12px 20px;
+    background:rgba(10,10,10,0.97);
     backdrop-filter:blur(12px);
-    border-bottom:1px solid rgba(255,255,255,0.06);
+    border-bottom:2px solid rgba(255,122,0,0.25);
 }
 
 nav .brand{
-    font-size:20px;
-    font-weight:800;
-    color:#ff7a00;
-    letter-spacing:1px;
-    text-decoration:none;
+    display:none;
 }
 
 nav .nav-links{
     display:flex;
-    gap:30px;
+    gap:6px;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+    width:100%;
 }
 
 nav .nav-links a{
-    color:#999;
+    color:#ffffff;
     text-decoration:none;
-    font-size:14px;
-    font-weight:500;
-    transition:color .2s;
+    font-size:17px;
+    font-weight:800;
+    padding:11px 15px;
+    border-radius:8px;
+    transition:all .2s;
+    white-space:nowrap;
 }
 
 nav .nav-links a:hover,
 nav .nav-links a.active{
     color:#ff7a00;
+    background:rgba(255,122,0,.12);
+    box-shadow:0 0 12px rgba(255,122,0,.10);
 }
 
 .hero{
@@ -317,23 +324,21 @@ footer a:hover{
     #model-container{ height:400px; }
     #model-canvas{ height:400px; }
     nav{
-        padding:14px 20px;
-        flex-wrap:wrap;
-        gap:10px 20px;
-    }
-
-    nav .brand{
-        flex-shrink:0;
+        padding:10px 10px !important;
+        justify-content:center !important;
     }
 
     nav .nav-links{
-        gap:18px;
+        gap:5px !important;
         flex:1 1 100%;
         width:100%;
+        display:flex;
+        justify-content:center;
+        align-items:center;
         overflow-x:auto;
         overflow-y:hidden;
         white-space:nowrap;
-        padding-bottom:4px;
+        padding:2px 0 5px;
         -webkit-overflow-scrolling:touch;
         scrollbar-width:none;
     }
@@ -344,7 +349,9 @@ footer a:hover{
 
     nav .nav-links a{
         flex:0 0 auto;
-        font-size:14px;
+        font-size:14px !important;
+        padding:9px 10px !important;
+        white-space:nowrap;
     }
 }
 .hero-buttons{
@@ -510,6 +517,7 @@ img, video, iframe {
         <a href="board.html" class="active" aria-current="page">Board</a>
         <a href="grumpy-peater.html">Grumpy Peater</a>
         <a href="avery-natal.html">Avery Repeater</a>
+        <a href="accessories.html">Accessories</a>
         <a href="flasher.html">Flash Firmware</a>
         <a href="how-we-got-here.html">How We Got Here</a>
     </div>
