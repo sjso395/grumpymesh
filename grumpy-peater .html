@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grumpy Peater | GrumpyMesh</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, Helvetica, sans-serif; background: #0b0b0b; color: #fff; min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden; position: relative; }
+body::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(255, 122, 0, .18), transparent 65%), linear-gradient(#111, #000); z-index: 0; }
+.top-nav { position: sticky; top: 0; z-index: 1000; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; width: 100%; padding: 12px 20px; background: rgba(10, 10, 10, .97); backdrop-filter: blur(12px); border-bottom: 2px solid rgba(255, 122, 0, .25); }
+.top-nav .brand { display: none; }
+.top-nav .nav-links { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; align-items: center; width: 100%; }
+.top-nav .nav-links a { color: #fff; text-decoration: none; font-size: 17px; font-weight: 800; padding: 11px 15px; border-radius: 8px; transition: all .2s; white-space: nowrap; }
+.top-nav .nav-links a:hover, .top-nav .nav-links a.active { color: #ff7a00; background: rgba(255,122,0,.12); box-shadow: 0 0 12px rgba(255,122,0,.10); }
+.container { position: relative; z-index: 2; width: 100%; max-width: 900px; text-align: center; margin: 0 auto; padding: 60px 20px; flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+.logo { color: #ff7a00; font-size: 64px; font-weight: 900; letter-spacing: 4px; }
+.line { width: 160px; height: 4px; background: #ff7a00; margin: 30px auto; border-radius: 10px; }
+.coming { max-width: 90%; display: inline-block; margin-top: 10px; padding: 10px 22px; border: 1px solid #ff7a00; border-radius: 30px; color: #ff7a00; font-size: 18px; font-weight: bold; letter-spacing: 2px; background: rgba(255, 122, 0, .08); }
+.headline { font-size: 48px; font-weight: bold; line-height: 1.2; margin-top: 30px; }
+.highlight { color: #ff7a00; }
+.description { margin: 30px auto; max-width: 760px; color: #d0d0d0; font-size: 21px; line-height: 1.8; }
+.description p + p { margin-top: 20px; }
+.features {
+  list-style: none;
+  text-align: left;
+  margin: 25px auto 0;
+  padding: 0;
+  max-width: 720px;
+}
+.features li {
+  position: relative;
+  padding-left: 30px;
+  margin: 18px 0;
+}
+.features li::before {
+  content: "•";
+  position: absolute;
+  left: 8px;
+  color: #ff7a00;
+  font-size: 26px;
+  line-height: 1;
+}
+.sneak { width: 100%; max-width: 760px; margin: 2px auto 6px; }
+.sneak img { display: block; width: 100%; border-radius: 14px; box-shadow: 0 0 25px rgba(0, 0, 0, .5); }
+.logo-card { width: 100%; max-width: 760px; margin: 35px auto 0; padding: 30px; border: 2px solid #ff7a00; border-radius: 14px; background: rgba(255, 122, 0, .08); box-shadow: 0 0 25px rgba(255, 122, 0, .15); }
+.logo-card img { display: block; width: min(360px, 90%); height: auto; margin: 0 auto; border-radius: 8px; }
+.logo-card p { margin-top: 23px; color: #ddd; font-size: 20px; line-height: 1.8; }
+.tagline { margin: 35px auto 0; color: #aaa; font-size: 20px; font-style: italic; }
+.back { margin-top: 35px; color: #ff7a00; text-decoration: none; font-size: 17px; font-weight: bold; }
+.back:hover { text-decoration: underline; }
+.footer { margin-top: 45px; color: #666; font-size: 14px; }
+@media (max-width: 768px) { .top-nav { padding: 14px 16px; flex-wrap: wrap; gap: 10px 16px; } .top-nav .nav-links { flex: 1 1 100%; width: 100%; gap: 16px; overflow-x: auto; padding: 2px 2px 6px; white-space: nowrap; scrollbar-width: none; } .top-nav .nav-links::-webkit-scrollbar { display: none; } .top-nav .nav-links a { flex: 0 0 auto; } .logo { font-size: 46px; } .headline { font-size: 32px; } .description { font-size: 18px; } .logo-card { padding: 25px 18px; } .logo-card p { font-size: 18px; } }
+</style>
+</head>
+<body>
+<nav class="top-nav" aria-label="Main navigation">
+  <a href="index.html" class="brand">GRUMPYMESH</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="board.html">Board</a>
+    <a href="grumpy-peater.html" class="active" aria-current="page">Grumpy Peater</a>
+    <a href="grumpy-lite-repeater.html">Grumpy Lite</a>
+    <a href="avery-natal.html">Avery Repeater</a>
+    <a href="accessories.html">Accessories</a>
+    <a href="flasher.html">Flash Firmware</a>
+    <a href="how-we-got-here.html">How We Got Here</a>
+  </div>
+</nav>
+
+<main class="container">
+  <div class="logo">GRUMPYMESH</div>
+  <div class="coming">FIRST PREORDERS SOLD OUT IN 8 HOURS - MORE COMING SOON</div>
+  <div class="line"></div>
+
+  <div class="headline"> <span class="highlight">The Grumpy King Peater</span></div>
+
+  <div class="description">
+    <ul class="features">
+      <li>Marine-grade hardware to help prevent saltwater corrosion.</li>
+      <li>Over 15,000mAh of battery capacity, with room for more.</li>
+      <li>10-watt solar panel designed to provide charging capability during cloudy conditions.</li>
+      <li>1-watt radio to punch through noisy environments and trees.</li>
+      <li>Low-loss SMA-to-N antenna adapter to keep feedline loss to a minimum.</li>
+      <li>Long-distance Wi-Fi updates — currently testing distances of up to 500 feet.</li>
+      <li>Accurate battery voltage can be monitored through Solar Controller</li>
+      <li>Expansion port to add your own telemetry toys, with room inside to install</li>
+      <li>On board filter to help clean up noise and out of band frequencies</li>
+      <li>Test have revealed true 1 watt output with improved receive capabilities</li>
+    </ul>
+  </div>
+
+  <div class="sneak" hidden>
+    <img src="Media/grumpy-peater-sneak.jpg" alt="Grumpy Peater preview" onload="this.parentElement.hidden=false" onerror="this.parentElement.hidden=true">
+  </div>
+
+  <div class="logo-card">
+    <img src="Media/Logo.jpg" alt="GrumpyMesh logo">
+    <p><strong>More details will be announced soon.</strong></p>
+  </div>
+
+  <p class="tagline">Because No One Else Could Get It Right.</p>
+  <a class="back" href="index.html">← Back to GrumpyMesh</a>
+  <div class="footer">GrumpyMesh — Building the future of MeshCore.</div>
+</main>
+</body>
+</html>
