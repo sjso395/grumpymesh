@@ -8,11 +8,11 @@
 <style>
 *{box-sizing:border-box}html{scroll-behavior:smooth}
 body{margin:0;background:#0b0b0b;color:#f2f2f2;font-family:Arial,Helvetica,sans-serif;line-height:1.7}
-.top-nav{width:100%;padding:24px 5%;display:flex;justify-content:space-between;align-items:center;gap:25px;background:#0b0b0b;border-bottom:1px solid #242424}
-.brand{color:#ff7a00;text-decoration:none;font-size:28px;font-weight:900;letter-spacing:2px;white-space:nowrap}
-.nav-links{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:12px}
-.nav-links a{color:#ddd;text-decoration:none;padding:9px 13px;border-radius:7px;font-size:16px;font-weight:700;transition:.2s}
-.nav-links a:hover{color:#ff7a00;background:rgba(255,122,0,.1)}
+.top-nav{width:100%;padding:16px 5%;display:flex;justify-content:center;align-items:center;gap:25px;background:#0b0b0b;border-bottom:1px solid #242424}
+.brand{display:none;color:#ff7a00;text-decoration:none;font-size:28px;font-weight:900;letter-spacing:2px;white-space:nowrap}
+.nav-links{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 10px}
+.nav-links a{color:#fff;text-decoration:none;padding:10px 13px;border-radius:7px;font-size:17px;font-weight:800;transition:.2s}
+.nav-links a:hover,.nav-links a.active{color:#ff7a00;background:rgba(255,122,0,.1)}
 .container{width:min(1100px,92%);margin:0 auto;text-align:center;padding:75px 0 60px}
 .logo{color:#ff7a00;font-size:clamp(48px,9vw,82px);font-weight:900;letter-spacing:4px;line-height:1.05}
 .line{width:300px;max-width:70%;height:4px;background:#ff7a00;margin:32px auto 42px;border-radius:10px}
@@ -34,13 +34,11 @@ body{margin:0;background:#0b0b0b;color:#f2f2f2;font-family:Arial,Helvetica,sans-
 .footer{border-top:1px solid #242424;padding:28px 20px 40px;text-align:center;color:#777;font-size:14px}
 .footer a{color:#ff7a00;text-decoration:none}
 .tagline{text-align:center;color:#555;font-size:14px;padding:0 20px 35px;font-style:italic}
-@media(max-width:800px){
-.top-nav{flex-direction:column;align-items:center;padding:18px 14px}.brand{font-size:25px}
+@media(max-width:800px){ .top-nav{padding:14px 16px;display:flex;justify-content:center;align-items:center}.nav-links{width:100%;justify-content:flex-start;flex-wrap:nowrap;gap:16px;overflow-x:auto;overflow-y:hidden;white-space:nowrap;padding:2px 2px 6px;-webkit-overflow-scrolling:touch;scrollbar-width:none}.nav-links::-webkit-scrollbar{display:none}.nav-links a{flex:0 0 auto;font-size:14px;padding:8px 9px}.container{padding-top:45px}.intro{font-size:18px}.accessory-grid{grid-template-columns:1fr}.card{padding:26px 22px}}.brand{font-size:25px}
 .nav-links{width:100%;justify-content:center;gap:5px}.nav-links a{font-size:14px;padding:8px 9px}
 .container{padding-top:45px}.intro{font-size:18px}.accessory-grid{grid-template-columns:1fr}.card{padding:26px 22px}
 }
-@media(max-width:520px){
-.nav-links{display:grid;grid-template-columns:repeat(2,1fr);width:100%}
+@media(max-width:520px){.nav-links{width:100%;display:flex;justify-content:flex-start}.nav-links a{text-align:center;border:0;background:transparent}.logo{letter-spacing:2px}.line{margin:28px auto 35px}.badge{font-size:15px;padding:9px 18px}}
 .nav-links a{text-align:center;border:1px solid #242424;background:#111}
 .nav-links a:last-child{grid-column:1/-1}.logo{letter-spacing:2px}
 .line{margin:28px auto 35px}.badge{font-size:15px;padding:9px 18px}
@@ -56,7 +54,8 @@ body{margin:0;background:#0b0b0b;color:#f2f2f2;font-family:Arial,Helvetica,sans-
 <a href="grumpy-peater.html">Grumpy Peater</a>
 <a href="grumpy-lite-repeater.html">Grumpy Lite</a>
 <a href="avery-natal.html">Avery Repeater</a>
-<a href="accessories.html">Accessories</a>
+<a href="accessories.html" class="active" aria-current="page">Accessories</a>
+<a href="flasher.html">Flash Firmware</a>
 <a href="how-we-got-here.html">How We Got Here</a>
 </div>
 </nav>
