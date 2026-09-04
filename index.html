@@ -258,6 +258,19 @@ body:before{
     background:rgba(255,122,0,.12);
     box-shadow:0 0 12px rgba(255,122,0,.10);
 }
+/* Site-wide boxed navigation */
+.top-nav .nav-links a{
+    border:1px solid #242424;
+    background:#111;
+    box-shadow:0 2px 8px rgba(0,0,0,.18);
+}
+.top-nav .nav-links a:hover,
+.top-nav .nav-links a.active{
+    border-color:#ff7a00;
+    background:rgba(255,122,0,.12);
+    box-shadow:0 0 12px rgba(255,122,0,.10);
+}
+
 
 /* GrumpyMesh mobile navigation/content fixes */
 * { box-sizing: border-box; }
@@ -428,13 +441,14 @@ img, video, iframe {
 <body>
 <div class="top-nav">
     <a href="index.html" class="brand">GRUMPYMESH</a>
-    <div class="nav-links">
+    <div class="nav-links"><div class="nav-links">
         <a href="index.html" class="active">Home</a>
         <a href="board.html">Board</a>
         <a href="grumpy-peater.html">Grumpy Peater</a>
         <a href="grumpy-lite-repeater.html">Grumpy Lite</a>
         <a href="avery-natal.html">Avery Repeater</a>
-        <a href="accessories.html">Accessories</a><a href="outdoors.html">Outdoors</a>
+        <a href="accessories.html">Accessories</a>
+        <a href="outdoors.html">Outdoors</a>
         <a href="flasher.html">Flash Firmware</a>
         <a href="how-we-got-here.html">How We Got Here</a>
     </div>
