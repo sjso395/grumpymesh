@@ -12,6 +12,17 @@ body{margin:0;background:#0b0b0b;color:#f2f2f2;font-family:Arial,Helvetica,sans-
 .brand{display:none;color:#ff7a00;text-decoration:none;font-size:28px;font-weight:900;letter-spacing:2px;white-space:nowrap}
 .nav-links{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 10px}
 .nav-links a{color:#fff;text-decoration:none;padding:10px 13px;border-radius:7px;font-size:17px;font-weight:800;transition:.2s}
+    .nav-links a{
+        border:1px solid #242424;
+        background:#111;
+        box-shadow:0 2px 8px rgba(0,0,0,.18);
+    }
+    .nav-links a:hover,
+    .nav-links a.active{
+        border-color:#ff7a00;
+        background:rgba(255,122,0,.12);
+        box-shadow:0 0 12px rgba(255,122,0,.10);
+    }
 .nav-links a:hover,.nav-links a.active{color:#ff7a00;background:rgba(255,122,0,.1)}
 .container{width:min(1100px,92%);margin:0 auto;text-align:center;padding:75px 0 60px}
 .logo{color:#ff7a00;font-size:clamp(48px,9vw,82px);font-weight:900;letter-spacing:4px;line-height:1.05}
@@ -49,15 +60,17 @@ body{margin:0;background:#0b0b0b;color:#f2f2f2;font-family:Arial,Helvetica,sans-
 <nav class="top-nav">
 <a href="index.html" class="brand">GRUMPYMESH</a>
 <div class="nav-links">
-<a href="index.html">Home</a>
-<a href="board.html">Board</a>
-<a href="grumpy-peater.html">Grumpy Peater</a>
-<a href="grumpy-lite-repeater.html">Grumpy Lite</a>
-<a href="avery-natal.html">Avery Repeater</a>
-<a href="accessories.html" class="active" aria-current="page">Accessories</a>
-<a href="flasher.html">Flash Firmware</a>
-<a href="how-we-got-here.html">How We Got Here</a>
-</div>
+      <a href="index.html">Home</a>
+      <a href="board.html">Board</a>
+      <a href="grumpy-peater.html">Grumpy Peater</a>
+      <a href="grumpy-x-repeater.html">Grumpy X</a>
+      <a href="grumpy-lite-repeater.html">Grumpy Lite</a>
+      <a href="avery-natal.html">Avery Repeater</a>
+      <a href="accessories.html" class="active" aria-current="page">Accessories</a>
+      <a href="outdoors.html">Outdoors</a>
+      <a href="flasher.html">Flash Firmware</a>
+      <a href="how-we-got-here.html">How We Got Here</a>
+    </div>
 </nav>
 <main class="container">
 <div class="logo">GRUMPYMESH</div>

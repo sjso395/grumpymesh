@@ -15,6 +15,17 @@
     .nav-links { display:flex; justify-content:center; align-items:center; gap:26px; width:100%; max-width:1200px; overflow-x:auto; scrollbar-width:none; }
     .nav-links::-webkit-scrollbar { display:none; }
     .nav-links a { color:#fff; font-size:17px; font-weight:700; text-decoration:none; white-space:nowrap; transition:color .2s; }
+    .nav-links a{
+        border:1px solid #242424;
+        background:#111;
+        box-shadow:0 2px 8px rgba(0,0,0,.18);
+    }
+    .nav-links a:hover,
+    .nav-links a.active{
+        border-color:#ff7a00;
+        background:rgba(255,122,0,.12);
+        box-shadow:0 0 12px rgba(255,122,0,.10);
+    }
     .nav-links a:hover,.nav-links a.active { color:var(--orange); }
     main { position:relative; z-index:1; width:min(960px,100%); margin:auto; padding:72px 20px 64px; }
     h1 { max-width:720px; margin:19px 0 13px; font-size:clamp(38px,6vw,64px); line-height:1.04; letter-spacing:-1.8px; }
@@ -64,9 +75,11 @@
       <a href="index.html">Home</a>
       <a href="board.html">Board</a>
       <a href="grumpy-peater.html">Grumpy Peater</a>
+      <a href="grumpy-x-repeater.html">Grumpy X</a>
       <a href="grumpy-lite-repeater.html">Grumpy Lite</a>
       <a href="avery-natal.html">Avery Repeater</a>
       <a href="accessories.html">Accessories</a>
+      <a href="outdoors.html">Outdoors</a>
       <a href="flasher.html" class="active" aria-current="page">Flash Firmware</a>
       <a href="how-we-got-here.html">How We Got Here</a>
     </div>
