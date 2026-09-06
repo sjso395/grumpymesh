@@ -51,7 +51,7 @@ body{margin:0;background:#0b0b0b;color:#f2f2f2;font-family:Arial,Helvetica,sans-
 }
 @media(max-width:520px){
  .nav-links{width:100%;display:flex;justify-content:flex-start}
- .nav-links a{text-align:center;border:0;background:transparent}
+ .nav-links a{text-align:center}
  .logo{letter-spacing:2px}
  .line{margin:28px auto 35px}.badge{font-size:16px;padding:9px 18px}
 }
@@ -59,22 +59,36 @@ body{margin:0;background:#0b0b0b;color:#f2f2f2;font-family:Arial,Helvetica,sans-
 .nav-links a:last-child{grid-column:1/-1}.logo{letter-spacing:2px}
 .line{margin:28px auto 35px}.badge{font-size:16px;padding:9px 18px}
 }
+
+/* GrumpyMesh boxed navigation */
+.nav-links a{
+    border:1px solid #242424;
+    background:#111;
+    box-shadow:0 2px 8px rgba(0,0,0,.18);
+}
+.nav-links a:hover,
+.nav-links a.active{
+    color:#ff7a00;
+    border-color:#ff7a00;
+    background:rgba(255,122,0,.12);
+    box-shadow:0 0 12px rgba(255,122,0,.10);
+}
 </style>
 </head>
 <body>
 <nav class="top-nav">
 <a href="index.html" class="brand">GRUMPYMESH</a>
 <div class="nav-links">
-<a href="index.html">Home</a>
-<a href="board.html">Board</a>
-<a href="grumpy-peater.html">Grumpy Peater</a>
-<a href="grumpy-lite-repeater.html" class="active" aria-current="page">Grumpy Lite</a>
-<a href="avery-natal.html">Avery Repeater</a>
-<a href="accessories.html">Accessories</a>
-<a href="outdoors.html">Outdoors</a>
-<a href="grumpy-x-repeater.html">Grumpy X</a>
-<a href="flasher.html">Flash Firmware</a>
-<a href="how-we-got-here.html">How We Got Here</a>
+    <a href="index.html">Home</a>
+    <a href="board.html">Board</a>
+    <a href="grumpy-peater.html">Grumpy Peater</a>
+    <a href="grumpy-x-repeater.html">Grumpy X</a>
+    <a href="grumpy-lite-repeater.html" class="active" aria-current="page">Grumpy Lite</a>
+    <a href="avery-natal.html">Avery Repeater</a>
+    <a href="accessories.html">Accessories</a>
+    <a href="outdoors.html">Outdoors</a>
+    <a href="flasher.html">Flash Firmware</a>
+    <a href="how-we-got-here.html">How We Got Here</a>
 </div>
 </nav>
 <main class="container">
