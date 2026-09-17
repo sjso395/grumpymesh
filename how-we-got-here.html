@@ -391,25 +391,200 @@ img, video, iframe {
   }
 }
 </style>
+<style>
+/* ===== GrumpyMesh Standard Top Banner & Navigation ===== */
+.site-logo {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 22px 20px 10px !important;
+  background: #0b0b0b !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.site-logo a {
+  display: inline-block !important;
+  line-height: 0 !important;
+  text-decoration: none !important;
+}
+
+.site-logo .logo-img,
+.logo-img {
+  display: block !important;
+  max-width: 100% !important;
+  height: auto !important;
+  width: min(625px, 82%) !important;
+  margin: 0 auto !important;
+  filter: drop-shadow(0 8px 20px rgba(255, 122, 0, 0.08)) !important;
+}
+
+.top-nav,
+nav.top-nav {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  padding: 12px 20px !important;
+  background: rgba(10, 10, 10, 0.97) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 2px solid rgba(255, 122, 0, 0.25) !important;
+}
+
+.top-nav .brand,
+nav.top-nav .brand {
+  display: none !important;
+}
+
+.top-nav .nav-links,
+nav.top-nav .nav-links {
+  display: flex !important;
+  gap: 6px !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  max-width: 1300px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+
+.top-nav .nav-links a,
+nav.top-nav .nav-links a {
+  color: #ffffff !important;
+  text-decoration: none !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  padding: 9px 13px !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+  white-space: nowrap !important;
+  border: 1px solid #242424 !important;
+  background: #111111 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 1.2 !important;
+  margin: 0 !important;
+}
+
+.top-nav .nav-links a:hover,
+.top-nav .nav-links a.active,
+nav.top-nav .nav-links a:hover,
+nav.top-nav .nav-links a.active {
+  color: #ff7a00 !important;
+  border-color: #ff7a00 !important;
+  background: rgba(255, 122, 0, 0.12) !important;
+  box-shadow: 0 0 12px rgba(255, 122, 0, 0.10) !important;
+}
+
+.top-nav .nav-links a.store-link,
+nav.top-nav .nav-links a.store-link {
+  color: #111111 !important;
+  background: #ff7a00 !important;
+  border-color: #ff7a00 !important;
+  box-shadow: 0 0 16px rgba(255, 122, 0, 0.35) !important;
+}
+
+.top-nav .nav-links a.store-link:hover,
+nav.top-nav .nav-links a.store-link:hover {
+  color: #111111 !important;
+  background: #ff9500 !important;
+  border-color: #ff9500 !important;
+  box-shadow: 0 0 20px rgba(255, 149, 0, 0.50) !important;
+}
+
+@media (max-width: 800px) {
+  .site-logo {
+    padding: 18px 16px 8px !important;
+  }
+  .site-logo .logo-img,
+  .logo-img {
+    width: 94% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-nav,
+  nav.top-nav {
+    padding: 10px 10px !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+  .top-nav .nav-links,
+  nav.top-nav .nav-links {
+    width: 100% !important;
+    justify-content: flex-start !important;
+    flex-wrap: nowrap !important;
+    gap: 6px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    white-space: nowrap !important;
+    padding: 2px 4px 6px !important;
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  .top-nav .nav-links::-webkit-scrollbar,
+  nav.top-nav .nav-links::-webkit-scrollbar {
+    display: none !important;
+  }
+  .top-nav .nav-links a,
+  nav.top-nav .nav-links a {
+    flex: 0 0 auto !important;
+    font-size: 14px !important;
+    padding: 8px 10px !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .top-nav,
+  nav.top-nav {
+    padding: 8px 6px !important;
+  }
+  .top-nav .nav-links,
+  nav.top-nav .nav-links {
+    gap: 4px !important;
+  }
+  .top-nav .nav-links a,
+  nav.top-nav .nav-links a {
+    font-size: 13px !important;
+    padding: 7px 8px !important;
+  }
+}
+/* ===== End GrumpyMesh Standard Top Banner & Navigation ===== */
+</style>
+
 </head>
 
 <body>
 
-<div class="top-nav">
-    <a href="index.html" class="brand">GRUMPYMESH</a>
-    <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="board.html">Board</a>
-        <a href="grumpy-peater.html">Grumpy Peater</a>
-        <a href="grumpy-x-repeater.html">Grumpy X</a>
-        <a href="grumpy-lite-repeater.html">Grumpy Lite</a>
-        <a href="avery-natal.html">Avery Repeater</a>
-        <a href="accessories.html">Accessories</a>
-        <a href="outdoors.html">Outdoors</a>
-        <a href="flasher.html">Flash Firmware</a>
-        <a href="how-we-got-here.html" class="active" aria-current="page">How We Got Here</a>
-        </div>
+<div class="site-logo">
+  <a href="index.html" aria-label="GrumpyMesh Home">
+    <img class="logo-img" src="Media/grumpymesh-logo.png" alt="GrumpyMesh Logo">
+  </a>
 </div>
+<nav class="top-nav" aria-label="Main navigation">
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="board.html">Board</a>
+    <a href="grumpy-peater.html">Grumpy Peater</a>
+    <a href="grumpy-x-repeater.html">Grumpy X</a>
+    <a href="grumpy-jr.html">Grumpy Jr</a>
+    <a href="avery-natal.html">Avery Repeater</a>
+    <a href="accessories.html">Accessories</a>
+    <a href="outdoors.html">Outdoors</a>
+    <a href="flasher.html">Flash Firmware</a>
+    <a href="https://shop.grumpymesh.com" class="store-link" target="_blank" rel="noopener noreferrer">🛒 STORE</a>
+    <a href="how-we-got-here.html" class="active" aria-current="page">How We Got Here</a>
+  </div>
+</nav>
 
 <div class="container">
 

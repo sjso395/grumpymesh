@@ -42,8 +42,8 @@
     h2 { margin:0; font-size:26px; letter-spacing:-.4px; }.subtext { margin:9px 0 25px; color:var(--muted); line-height:1.55; }
     .choice-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }.choice-grid.single { grid-template-columns:1fr; }
     .firmware-option { display:grid; gap:8px; }
-    .choice { position:relative; min-height:160px; cursor:pointer; padding:22px; border:1px solid #303030; border-radius:13px; background:#111; color:#eee; text-align:left; transition:border-color .2s,transform .2s,background .2s; }.choice:disabled { cursor:not-allowed; opacity:.62; }.choice:disabled:hover { transform:none; border-color:#303030; }.choice-badge { position:absolute; top:16px; right:16px; padding:5px 8px; border:1px solid rgba(255,122,0,.35); border-radius:999px; color:var(--orange); font-size:11px; font-weight:800; letter-spacing:.4px; text-transform:uppercase; }
-    .choice:hover { transform:translateY(-2px); border-color:#666; }.choice.selected { border-color:var(--orange); background:linear-gradient(145deg,rgba(255,122,0,.16),rgba(255,122,0,.04)); box-shadow:inset 0 0 0 1px rgba(255,122,0,.16); }.choice.selected::after { content:""; position:absolute; top:14px; right:15px; width:21px; height:21px; border-radius:50%; background:var(--orange); }.choice.selected::before { content:""; position:absolute; z-index:1; top:19px; right:21px; width:7px; height:4px; border-left:2px solid #111; border-bottom:2px solid #111; transform:rotate(-45deg); }
+    .choice { position:relative; min-height:160px; cursor:pointer; padding:22px; border:1px solid #303030; border-radius:13px; background:#111; color:#eee; text-align:left; transition:border-color .2s,transform .2s,background .2s; }.choice:disabled { cursor:not-allowed; opacity:.62; }.choice:disabled:hover { transform:none; border-color:#303030; }.choice-badge { position:absolute; top:16px; right:16px; padding:5px 8px; border:1px solid rgba(255,122,0,.35); border-radius:999px; color:var(--orange); font-size:11px; font-weight:800; letter-spacing:.4px; text-transform:uppercase; transition:right .2s; }
+    .choice:hover { transform:translateY(-2px); border-color:#666; }.choice.selected { border-color:var(--orange); background:linear-gradient(145deg,rgba(255,122,0,.16),rgba(255,122,0,.04)); box-shadow:inset 0 0 0 1px rgba(255,122,0,.16); }.choice.selected .choice-badge { right:44px; }.choice.selected::after { content:""; position:absolute; top:14px; right:15px; width:21px; height:21px; border-radius:50%; background:var(--orange); }.choice.selected::before { content:""; position:absolute; z-index:1; top:19px; right:21px; width:7px; height:4px; border-left:2px solid #111; border-bottom:2px solid #111; transform:rotate(-45deg); }
     .icon { display:block; width:1em; height:1em; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }.icon-sprite { position:absolute; width:0; height:0; overflow:hidden; }.choice-icon { display:grid; place-items:center; width:42px; height:42px; border:1px solid rgba(255,122,0,.24); border-radius:11px; background:rgba(255,122,0,.08); color:var(--orange); font-size:24px; }.choice h3 { margin:15px 0 7px; font-size:18px; }.choice p { margin:0; color:#999; font-size:14px; line-height:1.45; }
     .button-row { display:flex; justify-content:space-between; gap:12px; margin-top:28px; }.button { appearance:none; cursor:pointer; padding:13px 19px; border:1px solid transparent; border-radius:9px; background:var(--orange); color:#16100b; font-size:15px; font-weight:900; transition:transform .2s,background .2s; }.button:hover:not(:disabled) { transform:translateY(-2px); background:var(--orange-light); }.button:disabled { opacity:.38; cursor:not-allowed; }.button.secondary { background:transparent; color:#c4c4c4; border-color:#3c3c3c; }.button.secondary:hover { background:#1b1b1b; }
     .firmware-summary { display:grid; gap:10px; margin-top:20px; padding:18px; border:1px solid rgba(255,122,0,.22); border-radius:11px; background:rgba(255,122,0,.06); }.summary-row { display:flex; justify-content:space-between; gap:16px; color:#aaa; font-size:14px; }.summary-row strong { color:#fff; text-align:right; }
@@ -55,6 +55,176 @@
     @media (max-width:430px) { .top-nav { padding-left:12px; padding-right:12px; }.nav-links { gap:13px; }.nav-links a { font-size:13px; } }
     @media (max-width:740px) { .tool-links { grid-template-columns:1fr; }.flash-shell { grid-template-columns:1fr; gap:16px; }.steps { display:flex; justify-content:space-between; gap:4px; padding:0 3px; }.step { padding:0; font-size:0; }.step-number { width:25px; height:25px; font-size:11px; }.card-inner { padding:25px 18px; min-height:0; }.choice-grid { grid-template-columns:1fr; }.choice { min-height:132px; }.intro { font-size:16px; } }
   </style>
+<style>
+/* ===== GrumpyMesh Standard Top Banner & Navigation ===== */
+.site-logo {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 22px 20px 10px !important;
+  background: #0b0b0b !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.site-logo a {
+  display: inline-block !important;
+  line-height: 0 !important;
+  text-decoration: none !important;
+}
+
+.site-logo .logo-img,
+.logo-img {
+  display: block !important;
+  max-width: 100% !important;
+  height: auto !important;
+  width: min(625px, 82%) !important;
+  margin: 0 auto !important;
+  filter: drop-shadow(0 8px 20px rgba(255, 122, 0, 0.08)) !important;
+}
+
+.top-nav,
+nav.top-nav {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  padding: 12px 20px !important;
+  background: rgba(10, 10, 10, 0.97) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 2px solid rgba(255, 122, 0, 0.25) !important;
+}
+
+.top-nav .brand,
+nav.top-nav .brand {
+  display: none !important;
+}
+
+.top-nav .nav-links,
+nav.top-nav .nav-links {
+  display: flex !important;
+  gap: 6px !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  max-width: 1300px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+
+.top-nav .nav-links a,
+nav.top-nav .nav-links a {
+  color: #ffffff !important;
+  text-decoration: none !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  padding: 9px 13px !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+  white-space: nowrap !important;
+  border: 1px solid #242424 !important;
+  background: #111111 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 1.2 !important;
+  margin: 0 !important;
+}
+
+.top-nav .nav-links a:hover,
+.top-nav .nav-links a.active,
+nav.top-nav .nav-links a:hover,
+nav.top-nav .nav-links a.active {
+  color: #ff7a00 !important;
+  border-color: #ff7a00 !important;
+  background: rgba(255, 122, 0, 0.12) !important;
+  box-shadow: 0 0 12px rgba(255, 122, 0, 0.10) !important;
+}
+
+.top-nav .nav-links a.store-link,
+nav.top-nav .nav-links a.store-link {
+  color: #111111 !important;
+  background: #ff7a00 !important;
+  border-color: #ff7a00 !important;
+  box-shadow: 0 0 16px rgba(255, 122, 0, 0.35) !important;
+}
+
+.top-nav .nav-links a.store-link:hover,
+nav.top-nav .nav-links a.store-link:hover {
+  color: #111111 !important;
+  background: #ff9500 !important;
+  border-color: #ff9500 !important;
+  box-shadow: 0 0 20px rgba(255, 149, 0, 0.50) !important;
+}
+
+@media (max-width: 800px) {
+  .site-logo {
+    padding: 18px 16px 8px !important;
+  }
+  .site-logo .logo-img,
+  .logo-img {
+    width: 94% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-nav,
+  nav.top-nav {
+    padding: 10px 10px !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+  .top-nav .nav-links,
+  nav.top-nav .nav-links {
+    width: 100% !important;
+    justify-content: flex-start !important;
+    flex-wrap: nowrap !important;
+    gap: 6px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    white-space: nowrap !important;
+    padding: 2px 4px 6px !important;
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  .top-nav .nav-links::-webkit-scrollbar,
+  nav.top-nav .nav-links::-webkit-scrollbar {
+    display: none !important;
+  }
+  .top-nav .nav-links a,
+  nav.top-nav .nav-links a {
+    flex: 0 0 auto !important;
+    font-size: 14px !important;
+    padding: 8px 10px !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .top-nav,
+  nav.top-nav {
+    padding: 8px 6px !important;
+  }
+  .top-nav .nav-links,
+  nav.top-nav .nav-links {
+    gap: 4px !important;
+  }
+  .top-nav .nav-links a,
+  nav.top-nav .nav-links a {
+    font-size: 13px !important;
+    padding: 7px 8px !important;
+  }
+}
+/* ===== End GrumpyMesh Standard Top Banner & Navigation ===== */
+</style>
+
 </head>
 <body>
   <svg class="icon-sprite" aria-hidden="true">
@@ -69,21 +239,26 @@
     <symbol id="icon-arrow-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
     <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
   </svg>
-  <nav class="top-nav" aria-label="Main navigation">
-    <a href="index.html" class="brand">GRUMPYMESH</a>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="board.html">Board</a>
-      <a href="grumpy-peater.html">Grumpy Peater</a>
-      <a href="grumpy-x-repeater.html">Grumpy X</a>
-      <a href="grumpy-jr.html">Grumpy Jr</a>
-      <a href="avery-natal.html">Avery Repeater</a>
-      <a href="accessories.html">Accessories</a>
-      <a href="outdoors.html">Outdoors</a>
-      <a href="flasher.html" class="active" aria-current="page">Flash Firmware</a>
-      <a href="how-we-got-here.html">How We Got Here</a>
-    </div>
-  </nav>
+  <div class="site-logo">
+  <a href="index.html" aria-label="GrumpyMesh Home">
+    <img class="logo-img" src="Media/grumpymesh-logo.png" alt="GrumpyMesh Logo">
+  </a>
+</div>
+<nav class="top-nav" aria-label="Main navigation">
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="board.html">Board</a>
+    <a href="grumpy-peater.html">Grumpy Peater</a>
+    <a href="grumpy-x-repeater.html">Grumpy X</a>
+    <a href="grumpy-jr.html">Grumpy Jr</a>
+    <a href="avery-natal.html">Avery Repeater</a>
+    <a href="accessories.html">Accessories</a>
+    <a href="outdoors.html">Outdoors</a>
+    <a href="flasher.html" class="active" aria-current="page">Flash Firmware</a>
+    <a href="https://shop.grumpymesh.com" class="store-link" target="_blank" rel="noopener noreferrer">🛒 STORE</a>
+    <a href="how-we-got-here.html">How We Got Here</a>
+  </div>
+</nav>
   <main>
     <h1>Flash your <span>GrumpyMesh</span> device.</h1>
     <p class="intro">This firmware is only for the Grumpy Board, and is not intended for use with other boards.</p>
@@ -91,7 +266,7 @@
     <div class="flash-shell">
       <aside class="steps" aria-label="Flashing steps"><div class="step active" data-step="1"><span class="step-number">1</span>Device</div><div class="step" data-step="2"><span class="step-number">2</span>Firmware</div><div class="step" data-step="3"><span class="step-number">3</span>Erase</div><div class="step" data-step="4"><span class="step-number">4</span>Flash</div></aside>
       <section class="card" aria-live="polite"><div class="card-inner">
-        <div class="stage visible" id="stage-device"><h2>What would you like to flash?</h2><p class="subtext">Select the GrumpyMesh device you are setting up.</p><div class="choice-grid"><button class="choice" data-device="repeater"><div class="choice-icon"><svg class="icon" aria-hidden="true"><use href="#icon-repeater"></use></svg></div><h3>Repeater</h3><p>Extend your MeshCore network with a fixed repeater.</p></button><button class="choice" data-device="companion"><div class="choice-icon"><svg class="icon" aria-hidden="true"><use href="#icon-companion"></use></svg></div><h3>Companion</h3><p>Set up a companion device for your phone or computer.</p></button><button class="choice" data-device="room-server"><div class="choice-icon"><svg class="icon" aria-hidden="true"><use href="#icon-chip"></use></svg></div><h3>Room server</h3><p>Run a MeshCore room server.</p></button><button class="choice" data-device="kiss-modem"><div class="choice-icon"><svg class="icon" aria-hidden="true"><use href="#icon-usb"></use></svg></div><h3>KISS modem</h3><p>Use your device as a KISS modem.</p></button></div><div class="button-row"><span></span><button class="button icon-after" id="device-next" disabled>Continue<svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></button></div></div>
+        <div class="stage visible" id="stage-device"><h2>What would you like to flash?</h2><p class="subtext">Select the GrumpyMesh device you are setting up.</p><div class="choice-grid"><button class="choice" data-device="repeater"><div class="choice-icon"><svg class="icon" aria-hidden="true"><use href="#icon-repeater"></use></svg></div><h3>Repeater</h3><p>Extend your MeshCore network with a fixed repeater.</p></button><button class="choice" data-device="companion"><div class="choice-icon"><svg class="icon" aria-hidden="true"><use href="#icon-companion"></use></svg></div><h3>Companion</h3><p>Set up a companion device for your phone or computer.</p></button><button class="choice" data-device="room-server"><div class="choice-icon"><svg class="icon" aria-hidden="true"><use href="#icon-chip"></use></svg></div><h3>Room server</h3><p>Run a MeshCore room server.</p></button><button class="choice" data-device="kiss-modem"><div class="choice-icon"><svg class="icon" aria-hidden="true"><use href="#icon-usb"></use></svg></div><h3>KISS modem</h3><p>Use your device as a KISS modem.</p></button><button class="choice" data-device="openhop-modem"><span class="choice-badge">Beta</span><div class="choice-icon"><svg class="icon" aria-hidden="true"><use href="#icon-usb"></use></svg></div><h3>OpenHop modem</h3><p>Use your device as an OpenHop modem.</p></button></div><div class="button-row"><span></span><button class="button icon-after" id="device-next" disabled>Continue<svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></button></div></div>
         <div class="stage" id="stage-firmware"><h2 id="firmware-heading">Choose firmware</h2><p class="subtext" id="firmware-copy"></p><div class="choice-grid" id="firmware-options"></div><div class="button-row"><button class="button secondary" data-back="1"><svg class="icon" aria-hidden="true"><use href="#icon-arrow-left"></use></svg>Back</button><button class="button icon-after" id="firmware-next" disabled>Continue<svg class="icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></button></div></div>
         <div class="stage" id="stage-erase"><h2>Erase existing firmware?</h2><p class="subtext">A clean erase is recommended when changing firmware or troubleshooting a device.</p><div class="firmware-summary"><div class="summary-row"><span>Device</span><strong id="summary-device">—</strong></div><div class="summary-row"><span>Firmware</span><strong id="summary-firmware">—</strong></div><div class="summary-row"><span>Connection</span><strong id="summary-transport">—</strong></div></div><div class="warning"><svg class="icon warning-icon" aria-hidden="true"><use href="#icon-warning"></use></svg><div><b>Erasing is permanent.</b><br>It removes the current firmware and saved settings from this device.</div></div><label class="confirm"><input type="checkbox" id="erase-confirm"><span>I understand that erasing will remove my device settings.</span></label><div class="button-row"><button class="button secondary" data-back="2"><svg class="icon" aria-hidden="true"><use href="#icon-arrow-left"></use></svg>Back</button><button class="button" id="erase-next">Skip erase</button></div></div>
         <div class="stage" id="stage-flash"><div class="flash-panel"><div class="port-icon"><svg class="icon" aria-hidden="true"><use href="#icon-flash"></use></svg></div><h2>Ready to flash</h2><p id="flash-description">Download the selected firmware before connecting your device to flash it.</p><div class="firmware-summary"><div class="summary-row"><span>Selected image</span><strong id="flash-file">—</strong></div></div><div class="flash-actions"><a class="button secondary" id="download-link" download>Download firmware</a><button class="button" id="flash-button">Connect &amp; flash</button></div><div class="progress" id="progress"><span></span></div><div class="status" id="status"></div><p class="helper">Works in Chrome or Edge on desktop with a USB data cable.</p></div><div class="button-row"><button class="button secondary" data-back="3"><svg class="icon" aria-hidden="true"><use href="#icon-arrow-left"></use></svg>Back</button><button class="button secondary" id="start-over">Start over</button></div></div>
@@ -105,14 +280,14 @@
     const MINIMUM_FLASH_SIZE = 4 * 1024 * 1024;
     const state = { device:null, firmware:null, erase:false };
     const repeaters = [{ id:'repeater', title:'Normal repeater', description:'Standard MeshCore repeater firmware.', file:'Firmware/grumpy-node-repeater.bin', mergedFile:'Firmware/grumpy-node-repeater-merged.bin', transport:'USB serial' },{ id:'repeater-web-setup', title:'Wi-Fi setup repeater', description:'Wi-Fi setup firmware is not available yet.', file:'Firmware/grumpy-node-repeater-web-setup.bin', mergedFile:'Firmware/grumpy-node-repeater-web-setup-merged.bin', transport:'USB serial', comingSoon:true }];
-    const companions = [{ id:'companion-radio-ble', title:'Radio companion (Bluetooth)', description:'Pair and manage your companion from a phone.', file:'Firmware/grumpy-node-companion-radio-ble.bin', mergedFile:'Firmware/grumpy-node-companion-radio-ble-merged.bin', transport:'Bluetooth' },{ id:'companion-radio-usb', title:'Radio companion (USB)', description:'Use your companion through a direct USB connection.', file:'Firmware/grumpy-node-companion-radio-usb.bin', mergedFile:'Firmware/grumpy-node-companion-radio-usb-merged.bin', transport:'USB serial' },{ id:'companion-radio-wifi', title:'Radio companion (Wi-Fi)', description:'Use your companion over Wi-Fi.', file:'Firmware/grumpy-node-companion-radio-wifi.bin', mergedFile:'Firmware/grumpy-node-companion-radio-wifi-merged.bin', transport:'Wi-Fi' },{ id:'kiss-modem', title:'KISS modem', description:'Use your device as a KISS modem.', file:'Firmware/grumpy-node-kiss-modem.bin', mergedFile:'Firmware/grumpy-node-kiss-modem-merged.bin', transport:'USB serial' },{ id:'room-server', title:'Room server', description:'Run a MeshCore room server.', file:'Firmware/grumpy-node-room-server.bin', mergedFile:'Firmware/grumpy-node-room-server-merged.bin', transport:'USB serial' }];
+    const companions = [{ id:'companion-radio-ble', title:'Radio companion (Bluetooth)', description:'Pair and manage your companion from a phone.', file:'Firmware/grumpy-node-companion-radio-ble.bin', mergedFile:'Firmware/grumpy-node-companion-radio-ble-merged.bin', transport:'Bluetooth' },{ id:'companion-radio-usb', title:'Radio companion (USB)', description:'Use your companion through a direct USB connection.', file:'Firmware/grumpy-node-companion-radio-usb.bin', mergedFile:'Firmware/grumpy-node-companion-radio-usb-merged.bin', transport:'USB serial' },{ id:'companion-radio-wifi', title:'Radio companion (Wi-Fi)', description:'Use your companion over Wi-Fi.', file:'Firmware/grumpy-node-companion-radio-wifi.bin', mergedFile:'Firmware/grumpy-node-companion-radio-wifi-merged.bin', transport:'Wi-Fi' },{ id:'kiss-modem', title:'KISS modem', description:'Use your device as a KISS modem.', file:'Firmware/grumpy-node-kiss-modem.bin', mergedFile:'Firmware/grumpy-node-kiss-modem-merged.bin', transport:'USB serial' },{ id:'openhop-modem', title:'OpenHop modem', description:'Use your device as an OpenHop modem.', file:'Firmware/grumpy-node-openhop-modem.bin', mergedFile:'Firmware/grumpy-node-openhop-modem-merged.bin', transport:'USB serial', beta:true },{ id:'room-server', title:'Room server', description:'Run a MeshCore room server.', file:'Firmware/grumpy-node-room-server.bin', mergedFile:'Firmware/grumpy-node-room-server-merged.bin', transport:'USB serial' }];
     const stages = ['device','firmware','erase','flash'];
     const $ = s => document.querySelector(s);
     function showStage(number) { stages.forEach((name,index) => $('#stage-'+name).classList.toggle('visible', index === number-1)); document.querySelectorAll('.step').forEach((step,index) => { step.classList.toggle('active',index===number-1); step.classList.toggle('done',index<number-1); }); }
     function setChoice(button) { button.parentElement.querySelectorAll('.choice').forEach(item => item.classList.remove('selected')); button.classList.add('selected'); }
     document.querySelectorAll('[data-device]').forEach(button => button.addEventListener('click', () => { state.device=button.dataset.device; setChoice(button); $('#device-next').disabled=false; }));
-    $('#device-next').addEventListener('click', () => { const options=state.device==='repeater'?repeaters:state.device==='companion'?companions:[companions.find(item=>item.id===state.device)]; const deviceTitle=state.device==='repeater'?'Which repeater firmware?':state.device==='companion'?'Which companion firmware?':state.device==='room-server'?'Room server firmware':'KISS modem firmware'; $('#firmware-heading').textContent=deviceTitle; $('#firmware-copy').textContent=state.device==='repeater'?'Choose a normal repeater or one that opens Wi-Fi setup.':state.device==='companion'?'Choose the firmware for your companion.':'Confirm the firmware you want to install.'; const iconFor=item=>item.id.includes('wifi')?'wifi':item.id.includes('ble')?'bluetooth':item.id.includes('usb')?'usb':item.id.includes('kiss')?'chip':item.id.includes('room')?'chip':'chip'; $('#firmware-options').innerHTML=options.map(item => `<div class="firmware-option"><button class="choice" data-firmware="${item.id}"${item.comingSoon?' disabled':''}>${item.comingSoon?'<span class="choice-badge">Coming soon</span>':''}<div class="choice-icon"><svg class="icon" aria-hidden="true"><use href="#icon-${iconFor(item)}"></use></svg></div><h3>${item.title}</h3><p>${item.description}</p></button></div>`).join(''); document.querySelectorAll('[data-firmware]:not(:disabled)').forEach(button => button.addEventListener('click', () => { state.firmware=options.find(item=>item.id===button.dataset.firmware); setChoice(button); $('#firmware-next').disabled=false; })); showStage(2); });
-    $('#firmware-next').addEventListener('click', () => { $('#summary-device').textContent=state.device==='repeater'?'Repeater':state.device==='companion'?'Companion':state.device==='room-server'?'Room server':'KISS modem'; $('#summary-firmware').textContent=state.firmware.title; $('#summary-transport').textContent=state.firmware.transport; showStage(3); });
+    $('#device-next').addEventListener('click', () => { const options=state.device==='repeater'?repeaters:state.device==='companion'?companions:[companions.find(item=>item.id===state.device)]; const deviceTitle=state.device==='repeater'?'Which repeater firmware?':state.device==='companion'?'Which companion firmware?':state.device==='room-server'?'Room server firmware':state.device==='openhop-modem'?'OpenHop modem firmware':'KISS modem firmware'; $('#firmware-heading').textContent=deviceTitle; $('#firmware-copy').textContent=state.device==='repeater'?'Choose a normal repeater or one that opens Wi-Fi setup.':state.device==='companion'?'Choose the firmware for your companion.':'Confirm the firmware you want to install.'; const iconFor=item=>item.id.includes('wifi')?'wifi':item.id.includes('ble')?'bluetooth':item.id.includes('usb')?'usb':item.id.includes('kiss')?'chip':item.id.includes('openhop')?'chip':item.id.includes('room')?'chip':'chip'; $('#firmware-options').innerHTML=options.map(item => `<div class="firmware-option"><button class="choice" data-firmware="${item.id}"${item.comingSoon?' disabled':''}>${item.comingSoon?'<span class="choice-badge">Coming soon</span>':item.beta?'<span class="choice-badge">Beta</span>':''}<div class="choice-icon"><svg class="icon" aria-hidden="true"><use href="#icon-${iconFor(item)}"></use></svg></div><h3>${item.title}</h3><p>${item.description}</p></button></div>`).join(''); document.querySelectorAll('[data-firmware]:not(:disabled)').forEach(button => button.addEventListener('click', () => { state.firmware=options.find(item=>item.id===button.dataset.firmware); setChoice(button); $('#firmware-next').disabled=false; })); showStage(2); });
+    $('#firmware-next').addEventListener('click', () => { $('#summary-device').textContent=state.device==='repeater'?'Repeater':state.device==='companion'?'Companion':state.device==='room-server'?'Room server':state.device==='openhop-modem'?'OpenHop modem':'KISS modem'; $('#summary-firmware').textContent=state.firmware.title; $('#summary-transport').textContent=state.firmware.transport; showStage(3); });
     $('#erase-confirm').addEventListener('change', event => { state.erase=event.target.checked; $('#erase-next').textContent=state.erase?'Continue to flash →':'Skip erase'; });
     function flashPlan() { return state.erase ? { file:state.firmware.mergedFile, address:0, label:'Clean install (bootloader and partition table included)' } : { file:state.firmware.file, address:APP_OFFSET, label:'Update only (keeps device settings and partition table)' }; }
     $('#erase-next').addEventListener('click', () => { const plan=flashPlan(); $('#flash-file').textContent=plan.file.split('/').pop(); $('#download-link').href=plan.file; $('#flash-description').textContent=plan.label+'. Connect using '+state.firmware.transport+' to flash it.'; $('#flash-button').style.display='inline-block'; showStage(4); });
