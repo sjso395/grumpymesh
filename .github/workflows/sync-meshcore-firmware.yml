@@ -1,0 +1,40 @@
+name: Sync MeshCore firmware
+
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+  # Lets the MeshCore repo trigger a sync right after publishing a release.
+  repository_dispatch:
+    types: [meshcore-release]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-meshcore-firmware
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Mirror releases
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 .github/scripts/sync_meshcore_releases.py
+      - name: Commit changes
+        run: |
+          git add -A Firmware/meshcore
+          if git diff --cached --quiet; then
+            echo "Firmware already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898769+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Sync MeshCore firmware releases"
+          git push

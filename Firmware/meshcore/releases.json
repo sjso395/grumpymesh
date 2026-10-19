@@ -1,0 +1,39 @@
+{
+  "repo": "Cloud-121/MeshCore",
+  "latest": "grumpy-v1.18.0",
+  "releases": [
+    {
+      "tag": "grumpy-v1.18.0",
+      "name": "Grumpy Node v1.18.0",
+      "published": "2026-10-18T22:51:49Z",
+      "prerelease": false,
+      "url": "https://github.com/Cloud-121/MeshCore/releases/tag/grumpy-v1.18.0",
+      "firmware": {
+        "companion_radio_ble": {
+          "mergedFile": "Firmware/meshcore/grumpy-v1.18.0/Grumpy_Node_companion_radio_ble-v1.18.0-5177438-merged.bin",
+          "file": "Firmware/meshcore/grumpy-v1.18.0/Grumpy_Node_companion_radio_ble-v1.18.0-5177438.bin"
+        },
+        "companion_radio_usb": {
+          "mergedFile": "Firmware/meshcore/grumpy-v1.18.0/Grumpy_Node_companion_radio_usb-v1.18.0-5177438-merged.bin",
+          "file": "Firmware/meshcore/grumpy-v1.18.0/Grumpy_Node_companion_radio_usb-v1.18.0-5177438.bin"
+        },
+        "companion_radio_wifi": {
+          "mergedFile": "Firmware/meshcore/grumpy-v1.18.0/Grumpy_Node_companion_radio_wifi-v1.18.0-5177438-merged.bin",
+          "file": "Firmware/meshcore/grumpy-v1.18.0/Grumpy_Node_companion_radio_wifi-v1.18.0-5177438.bin"
+        },
+        "kiss_modem": {
+          "mergedFile": "Firmware/meshcore/grumpy-v1.18.0/Grumpy_Node_kiss_modem-v1.18.0-5177438-merged.bin",
+          "file": "Firmware/meshcore/grumpy-v1.18.0/Grumpy_Node_kiss_modem-v1.18.0-5177438.bin"
+        },
+        "repeater": {
+          "mergedFile": "Firmware/meshcore/grumpy-v1.18.0/Grumpy_Node_repeater-v1.18.0-5177438-merged.bin",
+          "file": "Firmware/meshcore/grumpy-v1.18.0/Grumpy_Node_repeater-v1.18.0-5177438.bin"
+        },
+        "room_server": {
+          "mergedFile": "Firmware/meshcore/grumpy-v1.18.0/Grumpy_Node_room_server-v1.18.0-5177438-merged.bin",
+          "file": "Firmware/meshcore/grumpy-v1.18.0/Grumpy_Node_room_server-v1.18.0-5177438.bin"
+        }
+      }
+    }
+  ]
+}
