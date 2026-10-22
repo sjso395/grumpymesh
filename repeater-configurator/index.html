@@ -37,8 +37,18 @@
           <a href="https://shop.grumpymesh.com" target="_blank" rel="noopener noreferrer">🛒 STORE</a>
           <a href="../how-we-got-here.html">How We Got Here</a>
         </div>
-        <span class="max"></span>
-        <button v-if="app.connected" @click="disconnect">
+      </nav>
+    </header>
+
+    <div class="device-bar">
+      <div class="device-menu">
+        <div class="device-status">
+          <span class="status-dot" :class="{ on: app.connected, busy: app.connecting }"></span>
+          <span v-if="app.connected">Connected<template v-if="app.device.vars.name"> · {{ app.device.vars.name }}</template></span>
+          <span v-else-if="app.connecting">Connecting...</span>
+          <span v-else>No device connected</span>
+        </div>
+        <button v-if="app.connected" class="border" @click="disconnect">
           <i>usb_off</i><span>Disconnect</span>
         </button>
         <button v-else-if="app.connecting" disabled>
@@ -48,8 +58,8 @@
         <button v-else @click="connect">
           <i>usb</i><span>Connect</span>
         </button>
-      </nav>
-    </header>
+      </div>
+    </div>
 
     <dialog ref="vanityDialog">
       <header>
