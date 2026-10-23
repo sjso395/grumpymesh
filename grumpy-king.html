@@ -113,6 +113,39 @@ body::before { content: ""; position: absolute; inset: 0; background: radial-gra
   .gallery-item img,
   .gallery-item:first-child img { height: auto; max-height: none; }
 }
+
+.wild-banner {
+  width: 100%;
+  max-width: 820px;
+  margin: 28px auto 10px;
+  padding: 22px 24px;
+  border: 2px solid #ff7a00;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(255,122,0,.16), rgba(18,18,18,.98));
+  box-shadow: 0 0 24px rgba(255,122,0,.14);
+  color: #f1f1f1;
+  font-size: 19px;
+  line-height: 1.65;
+  text-align: center;
+}
+.wild-banner strong { color: #ff7a00; }
+.wild-banner a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: 1px solid #ff7a00;
+  background: #ff7a00;
+  color: #111;
+  font-weight: 800;
+  text-decoration: none;
+  transition: background .2s ease, transform .2s ease;
+}
+.wild-banner a:hover { background: #ff9500; transform: translateY(-2px); }
+@media (max-width: 600px) {
+  .wild-banner { padding: 18px 14px; font-size: 17px; }
+}
+
 </style>
 <style>
 /* ===== GrumpyMesh Standard Top Banner & Navigation ===== */
@@ -335,6 +368,13 @@ nav.top-nav .nav-links a.store-link:hover {
     <img src="Media/grumpy-peater-sneak.jpg" alt="Grumpy King preview" onload="this.parentElement.hidden=false" onerror="this.parentElement.hidden=true">
   </div>
 
+
+
+  <section class="wild-banner" aria-label="More Grumpy King deployments">
+    <p><strong>Want to see more pictures of Grumpy King Repeaters deployed?</strong></p>
+    <p>Check out our <strong>“In the Wild”</strong> page to see them out in the field.</p>
+    <a href="/grumpys-in-the-wild/" aria-label="View GrumpyMesh In the Wild photos">📸 View Photos — In the Wild</a>
+  </section>
 
   <section class="gallery" aria-label="Grumpy King photos">
     <div class="gallery-title">THE GRUMPY KING IN THE FIELD</div>
