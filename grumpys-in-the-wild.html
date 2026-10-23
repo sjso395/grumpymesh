@@ -16,7 +16,7 @@ main{max-width:1200px;margin:0 auto;padding:42px 22px 70px}.eyebrow{color:#ff7a0
 h1{font-size:clamp(36px,6vw,64px);line-height:1.05;text-align:center;margin:14px 0 18px;font-weight:950}h1 span{color:#ff7a00}
 .lead{max-width:780px;margin:0 auto;text-align:center;color:#c8c8c8;font-size:18px;line-height:1.75}.accent-line{width:130px;height:4px;border-radius:8px;background:#ff7a00;margin:25px auto 38px}
 .gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:38px}.photo-card{overflow:hidden;border:1px solid #303030;border-radius:14px;background:linear-gradient(145deg,#171717,#0d0d0d);box-shadow:0 10px 30px rgba(0,0,0,.25)}
-.photo-placeholder{aspect-ratio:4/3;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;background:linear-gradient(135deg,rgba(255,122,0,.12),rgba(255,255,255,.025));border-bottom:1px solid #303030;color:#bdbdbd}
+.gallery-photo{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;background:#111;border-bottom:1px solid #303030}.photo-placeholder{aspect-ratio:4/3;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;background:linear-gradient(135deg,rgba(255,122,0,.12),rgba(255,255,255,.025));border-bottom:1px solid #303030;color:#bdbdbd}
 .camera{font-size:44px;margin-bottom:12px}.photo-placeholder strong{color:#ff7a00;font-size:18px;margin-bottom:7px}.photo-placeholder span{font-size:14px;line-height:1.5;max-width:260px}
 .card-copy{padding:18px 18px 20px}.card-copy h2{font-size:20px;margin:0 0 8px}.card-copy p{margin:0;color:#aaa;line-height:1.6;font-size:15px}
 .callout{margin:44px auto 0;padding:25px;border:1px solid #ff7a00;border-radius:14px;background:rgba(255,122,0,.07);text-align:center;max-width:850px}
@@ -37,9 +37,22 @@ h1{font-size:clamp(36px,6vw,64px);line-height:1.05;text-align:center;margin:14px
 <p class="lead">From backyard experiments to rooftops, towers, trails, and storm-ready setups — this is where the GrumpyMesh community puts its gear to work.</p>
 <div class="accent-line"></div>
 <section class="gallery" aria-label="GrumpyMesh community photo gallery">
-<article class="photo-card"><div class="photo-placeholder"><div class="camera">📷</div><strong>First Photo Coming Soon</strong><span>Add a photo of a Grumpy repeater installed in the field.</span></div><div class="card-copy"><h2>Out in the Field</h2><p>Show us where your GrumpyMesh gear is deployed.</p></div></article>
-<article class="photo-card"><div class="photo-placeholder"><div class="camera">📷</div><strong>Solar Setups</strong><span>Solar panels, batteries, and outdoor installations.</span></div><div class="card-copy"><h2>Powered by the Sun</h2><p>Share your solar-powered repeater setup and mounting ideas.</p></div></article>
-<article class="photo-card"><div class="photo-placeholder"><div class="camera">📷</div><strong>Community Builds</strong><span>Creative builds and real-world installations from the mesh community.</span></div><div class="card-copy"><h2>Built by the Community</h2><p>Every installation helps show what a stronger mesh can do.</p></div></article>
+<article class="photo-card">
+  <img class="gallery-photo" src="Media/field-pics/20261021_155048.jpg" alt="GrumpyMesh repeater and antenna mounted high on a rooftop">
+  <div class="card-copy"><h2>Rooftop Deployment</h2><p>A rooftop installation placing the antenna up high for better coverage.</p></div>
+</article>
+<article class="photo-card">
+  <img class="gallery-photo" src="Media/field-pics/IMG_6975.jpg" alt="Inside view of a repeater enclosure showing the electronics and batteries">
+  <div class="card-copy"><h2>Inside the Enclosure</h2><p>A look inside the enclosure at the radio hardware, wiring, and battery setup.</p></div>
+</article>
+<article class="photo-card">
+  <img class="gallery-photo" src="Media/field-pics/20261021_154810.jpg" alt="Blue GrumpyMesh repeater installed beside a rooftop with a tall antenna">
+  <div class="card-copy"><h2>Blue Repeater in the Wild</h2><p>A blue GrumpyMesh unit mounted outdoors with its antenna raised above the roofline.</p></div>
+</article>
+<article class="photo-card">
+  <img class="gallery-photo" src="Media/field-pics/20261021_154900.jpg" alt="Solar repeater and antenna mounted near a roof with trees in the background">
+  <div class="card-copy"><h2>Solar-Powered Setup</h2><p>An outdoor solar installation designed to keep the repeater running remotely.</p></div>
+</article>
 </section>
 <section class="callout"><h2>Got a Grumpy in the Wild?</h2><p>Send us your photos and tell us where your GrumpyMesh gear is running. We can add your setup to this gallery and show the community how you're connecting, exploring, and staying grumpy.</p><a class="button" href="https://www.youtube.com/@GrumpyDadOutdoors" target="_blank" rel="noopener noreferrer">Follow Grumpy Dad Outdoors</a></section>
 <div class="footer">GrumpyMesh · <a href="https://www.grumpymesh.com">www.grumpymesh.com</a><br>Connect · Explore · Stay Grumpy</div>
