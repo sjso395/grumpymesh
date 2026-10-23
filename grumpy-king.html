@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grumpy King | GrumpyMesh</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, Helvetica, sans-serif; background: #0b0b0b; color: #fff; min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden; position: relative; }
+body::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(255, 122, 0, .18), transparent 65%), linear-gradient(#111, #000); z-index: 0; }
+.top-nav { position: sticky; top: 0; z-index: 1000; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; width: 100%; padding: 12px 20px; background: rgba(10, 10, 10, .97); backdrop-filter: blur(12px); border-bottom: 2px solid rgba(255, 122, 0, .25); }
+.top-nav .brand { display: none; }
+.top-nav .nav-links { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; align-items: center; width: 100%; }
+.top-nav .nav-links a { color: #fff; text-decoration: none; font-size: 17px; font-weight: 800; padding: 11px 15px; border-radius: 8px; transition: all .2s; white-space: nowrap; }
+.top-nav .nav-links a:hover, .top-nav .nav-links a.active { color: #ff7a00; background: rgba(255,122,0,.12); box-shadow: 0 0 12px rgba(255,122,0,.10); }
+.top-nav .nav-links a {
+  border: 1px solid #242424;
+  background: #111;
+  box-shadow: 0 2px 8px rgba(0,0,0,.18);
+}
+.top-nav .nav-links a:hover,
+.top-nav .nav-links a.active {
+  border-color: #ff7a00;
+  background: rgba(255,122,0,.12);
+  box-shadow: 0 0 12px rgba(255,122,0,.10);
+}
+.container { position: relative; z-index: 2; width: 100%; max-width: 900px; text-align: center; margin: 0 auto; padding: 60px 20px; flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+.logo { color: #ff7a00; font-size: 64px; font-weight: 900; letter-spacing: 4px; }
+.line { width: 160px; height: 4px; background: #ff7a00; margin: 30px auto; border-radius: 10px; }
+.coming { max-width: 90%; display: inline-block; margin-top: 10px; padding: 10px 22px; border: 1px solid #ff7a00; border-radius: 30px; color: #ff7a00; font-size: 18px; font-weight: bold; letter-spacing: 2px; background: rgba(255, 122, 0, .08); }
+.headline { font-size: 48px; font-weight: bold; line-height: 1.2; margin-top: 30px; }
+.highlight { color: #ff7a00; }
+.description { margin: 30px auto; max-width: 760px; color: #d0d0d0; font-size: 21px; line-height: 1.8; }
+.description p + p { margin-top: 20px; }
+.features {
+  list-style: none;
+  text-align: left;
+  margin: 25px auto 0;
+  padding: 0;
+  max-width: 720px;
+}
+.features li {
+  position: relative;
+  padding-left: 30px;
+  margin: 18px 0;
+}
+.features li::before {
+  content: "•";
+  position: absolute;
+  left: 8px;
+  color: #ff7a00;
+  font-size: 26px;
+  line-height: 1;
+}
+.sneak { width: 100%; max-width: 760px; margin: 2px auto 6px; }
+.sneak img { display: block; width: 100%; border-radius: 14px; box-shadow: 0 0 25px rgba(0, 0, 0, .5); }
+.logo-card { width: 100%; max-width: 760px; margin: 35px auto 0; padding: 30px; border: 2px solid #ff7a00; border-radius: 14px; background: rgba(255, 122, 0, .08); box-shadow: 0 0 25px rgba(255, 122, 0, .15); }
+.logo-card img { display: block; width: min(360px, 90%); height: auto; margin: 0 auto; border-radius: 8px; }
+.logo-card p { margin-top: 23px; color: #ddd; font-size: 20px; line-height: 1.8; }
+.tagline { margin: 35px auto 0; color: #aaa; font-size: 20px; font-style: italic; }
+.back { margin-top: 35px; color: #ff7a00; text-decoration: none; font-size: 17px; font-weight: bold; }
+.back:hover { text-decoration: underline; }
+.footer { margin-top: 45px; color: #666; font-size: 14px; }
+@media (max-width: 800px) { .top-nav { padding: 14px 16px; display: flex; justify-content: center; align-items: center; } .top-nav .nav-links { width: 100%; justify-content: flex-start; flex-wrap: nowrap; gap: 12px; overflow-x: auto; overflow-y: hidden; padding: 2px 2px 6px; white-space: nowrap; scrollbar-width: none; -webkit-overflow-scrolling: touch; } .top-nav .nav-links::-webkit-scrollbar { display: none; } .top-nav .nav-links a { flex: 0 0 auto; font-size: 14px; padding: 8px 9px; border: 1px solid #242424; background: #111; box-shadow: 0 2px 8px rgba(0,0,0,.18); } .logo { font-size: 46px; } .headline { font-size: 32px; } .description { font-size: 18px; } .logo-card { padding: 25px 18px; } .logo-card p { font-size: 18px; } } @media (max-width: 520px) { .top-nav .nav-links { justify-content: flex-start; gap: 10px; } .top-nav .nav-links a { font-size: 13px; padding: 8px; } }
+
+.gallery {
+  width: 100%;
+  max-width: 820px;
+  margin: 45px auto 10px;
+}
+.gallery-title {
+  color: #ff7a00;
+  font-size: 30px;
+  margin-bottom: 22px;
+  font-weight: 900;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.gallery-item {
+  margin: 0;
+  padding: 10px;
+  border: 1px solid #2d2d2d;
+  border-radius: 14px;
+  background: linear-gradient(145deg,#151515,#101010);
+  box-shadow: 0 12px 35px rgba(0,0,0,.3);
+}
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 9px;
+  cursor: zoom-in;
+}
+.gallery-item figcaption {
+  color: #aaa;
+  font-size: 14px;
+  padding: 10px 5px 2px;
+  text-align: center;
+}
+.gallery-item:first-child {
+  grid-column: 1 / -1;
+}
+.gallery-item:first-child img {
+  height: 430px;
+}
+@media (max-width: 700px) {
+  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-item:first-child { grid-column: auto; }
+  .gallery-item img,
+  .gallery-item:first-child img { height: auto; max-height: none; }
+}
+</style>
+<style>
+/* ===== GrumpyMesh Standard Top Banner & Navigation ===== */
+.site-logo {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 22px 20px 10px !important;
+  background: #0b0b0b !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.site-logo a {
+  display: inline-block !important;
+  line-height: 0 !important;
+  text-decoration: none !important;
+}
+
+.site-logo .logo-img,
+.logo-img {
+  display: block !important;
+  max-width: 100% !important;
+  height: auto !important;
+  width: min(625px, 82%) !important;
+  margin: 0 auto !important;
+  filter: drop-shadow(0 8px 20px rgba(255, 122, 0, 0.08)) !important;
+}
+
+.top-nav,
+nav.top-nav {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  padding: 12px 20px !important;
+  background: rgba(10, 10, 10, 0.97) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 2px solid rgba(255, 122, 0, 0.25) !important;
+}
+
+.top-nav .brand,
+nav.top-nav .brand {
+  display: none !important;
+}
+
+.top-nav .nav-links,
+nav.top-nav .nav-links {
+  display: flex !important;
+  gap: 6px !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  max-width: 1300px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+
+.top-nav .nav-links a,
+nav.top-nav .nav-links a {
+  color: #ffffff !important;
+  text-decoration: none !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  padding: 9px 13px !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+  white-space: nowrap !important;
+  border: 1px solid #242424 !important;
+  background: #111111 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 1.2 !important;
+  margin: 0 !important;
+}
+
+.top-nav .nav-links a:hover,
+.top-nav .nav-links a.active,
+nav.top-nav .nav-links a:hover,
+nav.top-nav .nav-links a.active {
+  color: #ff7a00 !important;
+  border-color: #ff7a00 !important;
+  background: rgba(255, 122, 0, 0.12) !important;
+  box-shadow: 0 0 12px rgba(255, 122, 0, 0.10) !important;
+}
+
+.top-nav .nav-links a.store-link,
+nav.top-nav .nav-links a.store-link {
+  color: #111111 !important;
+  background: #ff7a00 !important;
+  border-color: #ff7a00 !important;
+  box-shadow: 0 0 16px rgba(255, 122, 0, 0.35) !important;
+}
+
+.top-nav .nav-links a.store-link:hover,
+nav.top-nav .nav-links a.store-link:hover {
+  color: #111111 !important;
+  background: #ff9500 !important;
+  border-color: #ff9500 !important;
+  box-shadow: 0 0 20px rgba(255, 149, 0, 0.50) !important;
+}
+
+@media (max-width: 800px) {
+  .site-logo {
+    padding: 18px 16px 8px !important;
+  }
+  .site-logo .logo-img,
+  .logo-img {
+    width: 94% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-nav,
+  nav.top-nav {
+    padding: 10px 10px !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+  .top-nav .nav-links,
+  nav.top-nav .nav-links {
+    width: 100% !important;
+    justify-content: flex-start !important;
+    flex-wrap: nowrap !important;
+    gap: 6px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    white-space: nowrap !important;
+    padding: 2px 4px 6px !important;
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  .top-nav .nav-links::-webkit-scrollbar,
+  nav.top-nav .nav-links::-webkit-scrollbar {
+    display: none !important;
+  }
+  .top-nav .nav-links a,
+  nav.top-nav .nav-links a {
+    flex: 0 0 auto !important;
+    font-size: 14px !important;
+    padding: 8px 10px !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .top-nav,
+  nav.top-nav {
+    padding: 8px 6px !important;
+  }
+  .top-nav .nav-links,
+  nav.top-nav .nav-links {
+    gap: 4px !important;
+  }
+  .top-nav .nav-links a,
+  nav.top-nav .nav-links a {
+    font-size: 13px !important;
+    padding: 7px 8px !important;
+  }
+}
+/* ===== End GrumpyMesh Standard Top Banner & Navigation ===== */
+</style>
+
+</head>
+<body>
+
+<div class="site-logo">
+  <a href="index.html" aria-label="GrumpyMesh Home">
+    <img class="logo-img" src="Media/grumpymesh-logo.png" alt="GrumpyMesh Logo">
+  </a>
+</div>
+<nav class="top-nav" aria-label="Main navigation">
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="board.html">Board</a>
+    <a href="grumpy-peater.html" class="active" aria-current="page">Grumpy King</a>
+    <a href="grumpy-x-repeater.html">Grumpy X</a>
+    <a href="grumpy-jr.html">Grumpy Jr</a>
+    <a href="avery-natal.html">Avery Repeater</a>
+    <a href="accessories.html">Accessories</a>
+    <a href="outdoors.html">Outdoors</a>
+    <a href="/grumpys-in-the-wild/">Photos</a>
+    <a href="flasher.html">Flash Firmware</a>
+    <a href="https://shop.grumpymesh.com" class="store-link" target="_blank" rel="noopener noreferrer">🛒 STORE</a>
+    <a href="how-we-got-here.html">How We Got Here</a>
+  </div>
+</nav>
+
+
+<main class="container">
+<div class="coming">FIRST PREORDERS SOLD OUT IN 8 HOURS - MORE COMING SOON</div>
+  <div class="line"></div>
+
+  <div class="headline"> <span class="highlight">The Grumpy King</span></div>
+
+  <div class="description">
+    <ul class="features">
+      <li>Marine-grade hardware to help prevent saltwater corrosion.</li>
+      <li>Over 15,000mAh of battery capacity, with room for more.</li>
+      <li>10-watt solar panel designed to provide charging capability during cloudy conditions.</li>
+      <li>1-watt radio to punch through noisy environments and trees.</li>
+      <li>Low-loss SMA-to-N antenna adapter to keep feedline loss to a minimum.</li>
+      <li>Long-distance Wi-Fi updates — currently testing distances of up to 500 feet.</li>
+      <li>Accurate battery voltage can be monitored through Solar Controller</li>
+      <li>Expansion port to add your own telemetry toys, with room inside to install</li>
+      <li>On board filter to help clean up noise and out of band frequencies</li>
+      <li>Test have revealed true 1 watt output with improved receive capabilities</li>
+    </ul>
+  </div>
+
+  <div class="sneak" hidden>
+    <img src="Media/grumpy-peater-sneak.jpg" alt="Grumpy King preview" onload="this.parentElement.hidden=false" onerror="this.parentElement.hidden=true">
+  </div>
+
+
+  <section class="gallery" aria-label="Grumpy King photos">
+    <div class="gallery-title">THE GRUMPY KING IN THE FIELD</div>
+    <div class="gallery-grid">
+      <figure class="gallery-item">
+        <a href="Media/grumpy-peater-installed-driveway.jpg" target="_blank" rel="noopener noreferrer">
+          <img src="Media/grumpy-peater-installed-driveway.jpg" alt="Grumpy King mounted on a wooden post outdoors">
+        </a>
+        <figcaption>Grumpy King mounted and running outdoors.</figcaption>
+      </figure>
+
+      <figure class="gallery-item">
+        <a href="Media/grumpy-peater-back.jpg" target="_blank" rel="noopener noreferrer">
+          <img src="Media/grumpy-peater-back.jpg" alt="Rear view of the Grumpy King enclosure">
+        </a>
+        <figcaption>Rear view showing the mounting structure.</figcaption>
+      </figure>
+
+      <figure class="gallery-item">
+        <a href="Media/grumpy-peater-side.jpg" target="_blank" rel="noopener noreferrer">
+          <img src="Media/grumpy-peater-side.jpg" alt="Side view of the Grumpy King enclosure">
+        </a>
+        <figcaption>Side profile of the Grumpy King.</figcaption>
+      </figure>
+
+      <figure class="gallery-item">
+        <a href="Media/grumpy-peater-mounted-pole.jpg" target="_blank" rel="noopener noreferrer">
+          <img src="Media/grumpy-peater-mounted-pole.jpg" alt="Grumpy King mounted to a metal pole">
+        </a>
+        <figcaption>Mounted to a pole with the solar panel positioned beside the repeater.</figcaption>
+      </figure>
+
+      <figure class="gallery-item">
+        <a href="Media/grumpy-peater-installed-field.jpg" target="_blank" rel="noopener noreferrer">
+          <img src="Media/grumpy-peater-installed-field.jpg" alt="Grumpy Peater installed outdoors in an open field">
+        </a>
+        <figcaption>Outdoor installation in an open field.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="logo-card">
+    <img src="Media/Logo.jpg" alt="GrumpyMesh logo">
+    <p><strong>Sign up for email updates to learn when the Grumpy King Repeaters are back in stock!</strong></p>
+  </div>
+
+  <p class="tagline">Because No One Else Could Get It Right.</p>
+  <a class="back" href="index.html">← Back to GrumpyMesh</a>
+  <div class="footer">GrumpyMesh — Building the future of MeshCore.</div>
+</main>
+</body>
+</html>
